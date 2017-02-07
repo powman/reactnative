@@ -11,7 +11,7 @@ export default function configureStore(onCompletion:()=>void):any {
   const enhancer = compose(
     applyMiddleware(thunk, promise),
     devTools({
-      name: 'siganoapp', realtime: true,
+      name: 'padrao', realtime: true,
     }),
   );
 

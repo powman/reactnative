@@ -83,43 +83,13 @@ class Login extends Component {
 
   render() { 
       return (
-        <View style={styles.container}> 
-          <Loading visible={this.state.isLoading} loadingText="Carregando..." />
-          <StatusBarAlert visible={this.state.status_visible} message={this.state.status_mensagem} backgroundColor={this.state.status_background} color="white"/>
-          <ScrollView
-          automaticallyAdjustContentInsets={false}
-          style={styles.scrollView}>
-            <View style={styles.meio}>
-              <Animatable.Image animation="bounceInDown" source={require('../../../images/logo_branca.png')} style={styles.logo}></Animatable.Image>
-              <Animatable.View animation="fadeInDown">
-                <TextInput autoCapitalize={'none'} style={styles.input} placeholder="Usuário" onChangeText={usuario => this.setState({ usuario })} />
-                <TextInput secureTextEntry={true} style={styles.input} placeholder="Senha" onChangeText={senha => this.setState({ senha })} />
-              </Animatable.View>
-              <TouchableOpacity style={styles.TouchableOpacity} onPress={() => this.logar()}>
-                <LinearGradient colors={['#ffffff','#ffffff']} style={styles.linearGradient}>
-                  <Text style={styles.buttonText}>
-                    Entrar
-                  </Text>
-                </LinearGradient>
-              </TouchableOpacity>
-              {/*<TouchableOpacity style={styles.TouchableOpacity} onPress={() => this.logarComFacebook()}>
-                <LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']} style={styles.linearGradient}>
-                  <Text style={styles.buttonText}>
-                    Entrar com Facebook
-                  </Text>
-                </LinearGradient>
-              </TouchableOpacity>*/ }
-              <View style={styles.TextosRodape}>
-                <TouchableOpacity onPress={() => this.pushRoute('cadastro',1)}>
-                  <Animatable.Text animation="flipInX" style={styles.TextoRodape1}>Cadastre-se</Animatable.Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => this.replaceRoute('recuperarSenha')}>
-                  <Animatable.Text animation="flipInX" style={styles.TextoRodape2}>Recuperar Senha</Animatable.Text>
-                </TouchableOpacity>
-              </View>
+        <Container>
+          <Content>
+            <View style={{flex: 1, height: screenHeight, justifyContent: 'center'}}>
+              <Button block> Login </Button>
             </View>
-          </ScrollView>
-        </View>       
+          </Content>
+        </Container>       
       );
    }
 }
