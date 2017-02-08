@@ -1,20 +1,17 @@
 
 import React, { Component } from 'react';
-import { TouchableOpacity,View, Text, Navigator, ScrollView } from 'react-native';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 import { Grid, Row } from 'react-native-easy-grid';
 
-import * as Animatable from 'react-native-animatable';
-import { openDrawer } from '../../actions/drawer';
-import { setIndex } from '../../actions/list';
-import myTheme from '../../themes/base-theme';
+//import * as Animatable from 'react-native-animatable';
+//import myTheme from '../../themes/base-theme';
 import styles from './styles';
-import Header from '../header';
+//import Header from '../header';
 
 
 const {
-  reset,
   pushRoute,
 } = actions;
 
@@ -28,32 +25,25 @@ class Configuracoes extends Component {
   }
 
   pushRoute(route, index) {
-    this.props.setIndex(index);
     this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
   }
 
   render() {
     return (
-      <View style={styles.container}> 
-        <ScrollView
-        automaticallyAdjustContentInsets={false}
-        style={styles.scrollView}>
-          <View style={styles.meio}>
-            <Header></Header>
-            <Text>Configuracoes</Text>
+      <Container>
+        <Content>
+          <View style={{flex: 1, height: 300, justifyContent: 'center'}}>
+            <Button block> Login </Button>
           </View>
-        </ScrollView>
-      </View>
+        </Content>
+      </Container>
     );
   }
 }
 
 function bindAction(dispatch) {
   return {
-    setIndex: index => dispatch(setIndex(index)),
-    openDrawer: () => dispatch(openDrawer()),
-    pushRoute: (route, key) => dispatch(pushRoute(route, key)),
-    reset: key => dispatch(reset([{ key: 'login' }], key, 0)), 
+    pushRoute: (route, key) => dispatch(pushRoute(route, key))
   };
 }
 
