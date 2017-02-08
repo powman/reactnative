@@ -1,23 +1,23 @@
 
 import React, { Component } from 'react';
-import { Image, TouchableOpacity, ActivityIndicator, View, Text, ScrollView, TextInput, AsyncStorage } from 'react-native';
+import { View, AsyncStorage } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
-import LinearGradient from 'react-native-linear-gradient';
+import { Container, Header, Content, Title, Icon, Button} from 'native-base';
+//import LinearGradient from 'react-native-linear-gradient';
 
 import styles from './styles';
-import Loading from '../loading'; 
+//import Loading from '../loading'; 
 import AuthService from '../../api/AuthService'; 
-import StatusBarAlert from '../alert/MessageBar'; 
+//import StatusBarAlert from '../alert/MessageBar'; 
 //import {LoginManager} from 'react-native-fbsdk'; 
-import * as Animatable from 'react-native-animatable';
+//import * as Animatable from 'react-native-animatable';
 
 const { replaceAt, pushRoute,} = actions;
 
 class Login extends Component {
 
   static propTypes = { 
-    setUser: React.PropTypes.func,
     replaceAt: React.PropTypes.func,
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
@@ -65,27 +65,11 @@ class Login extends Component {
     this.props.replaceAt('login', { key: route}, this.props.navigation.key);
   }
 
-  logarComFacebook() {
-    /*LoginManager.logInWithReadPermissions(['public_profile']).then(
-      function(result) {
-        if (result.isCancelled) {
-          alert('Login cancelled');
-        } else {
-          alert('Login success with permissions: '
-            +result.grantedPermissions.toString());
-        }
-      },
-      function(error) {
-        alert('Login fail with error: ' + error);
-      }
-    );*/
-  }
-
   render() { 
       return (
         <Container>
           <Content>
-            <View style={{flex: 1, height: screenHeight, justifyContent: 'center'}}>
+            <View style={{flex: 1, height: 300, justifyContent: 'center'}}>
               <Button block> Login </Button>
             </View>
           </Content>
@@ -97,7 +81,6 @@ class Login extends Component {
 function bindActions(dispatch) {
   return {
     replaceAt: (routeKey, route, key) => dispatch(replaceAt(routeKey, route, key)),
-    setUser: name => dispatch(setUser(name)),
     pushRoute: (route, key) => dispatch(pushRoute(route, key)),
   };
 }
