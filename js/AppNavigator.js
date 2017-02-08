@@ -22,7 +22,6 @@ const {
 class AppNavigator extends Component {
 
   static propTypes = {
-    drawerState: React.PropTypes.string,
     popRoute: React.PropTypes.func,
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
@@ -85,10 +84,6 @@ class AppNavigator extends Component {
 
   render() {
     return (
-        <StatusBar
-          backgroundColor={statusBarColor}
-          barStyle="default"
-        />
         <NavigationCardStack
           navigationState={this.props.navigation}
           renderOverlay={this._renderOverlay}
@@ -107,7 +102,6 @@ function bindAction(dispatch) {
 }
 
 const mapStateToProps = state => ({
-  drawerState: state.drawer.drawerState,
   navigation: state.cardNavigation
 });
 
