@@ -40,7 +40,7 @@ class Home extends Component {
     return (
       <Container>
         <Content>
-          <View style={{flex: 1, height: screenHeight, justifyContent: 'center'}}>
+          <View style={{flex: 1, height: 300, justifyContent: 'center'}}>
             <Button block> Login </Button>
           </View>
         </Content>
